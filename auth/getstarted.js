@@ -15,7 +15,8 @@ async function handleSubmit(event) {
   try {
     const { data, error } = await supabase
       .from('users')
-      .insert({ name, email, password, role });
+      .insert([{ name, email, password, role },
+    ]);
 
     if (error) {
       console.error('Error signing up:', error.message);
